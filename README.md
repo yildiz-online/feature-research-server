@@ -1,6 +1,6 @@
 # Yildiz-Engine feature-research-server
 
-This is the official repository of The feature-research-shared library, part of the Yildiz-Engine project.
+This is the official repository of The feature-research-server library, part of the Yildiz-Engine project.
 The library contains all the server components to use the researches feature.
 
 ## Features
