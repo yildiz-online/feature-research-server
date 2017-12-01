@@ -25,9 +25,9 @@
 package be.yildizgames.engine.feature.research.persistence;
 
 import be.yildiz.common.id.PlayerId;
-import be.yildiz.common.util.Pair;
 import be.yildiz.common.util.StringUtil;
-import be.yildiz.module.database.data.PersistentData;
+import be.yildiz.module.database.data.SimplePersistentData;
+import be.yildizgames.engine.feature.research.PlayerResearch;
 import be.yildizgames.engine.feature.research.ResearchId;
 import be.yildizgames.engine.feature.research.ResearchManager;
 import be.yildizgames.engine.feature.research.generated.database.tables.Researches;
@@ -38,14 +38,13 @@ import org.jooq.impl.DSL;
 
 import java.sql.Connection;
 import java.util.Optional;
-import java.util.Set;
 
 /**
  * Persistent data for researches.
  *
  * @author Grégory Van den Borre
  */
-public final class PersistentResearch implements PersistentData<Pair<PlayerId, Set<ResearchId>>, Pair<PlayerId, Set<ResearchId>>> {
+public final class PersistentResearch implements SimplePersistentData<PlayerResearch> {
 
     /**
      * Database table containing the data.
@@ -76,21 +75,21 @@ public final class PersistentResearch implements PersistentData<Pair<PlayerId, S
     }
 
     @Override
-    public Pair<PlayerId, Set<ResearchId>> save(final Pair<PlayerId, Set<ResearchId>> data, Connection c) {
+    public PlayerResearch save(final PlayerResearch data, Connection c) {
         try (DSLContext create = this.getDSL(c)) {
-            ResearchesRecord research = create.fetchOne(table, table.PLY_ID.equal((short)data.getObject1().value));
+            ResearchesRecord research = create.fetchOne(table, table.PLY_ID.equal((short)data.getPlayerId().value));
             if(research == null) {
                 research = create.newRecord(table);
-                research.setPlyId((short) data.getObject1().value);
+                research.setPlyId((short) data.getPlayerId().value);
             }
-            research.setName(StringUtil.toString(data.getObject2()));
+            research.setName(StringUtil.toString(data.getResearches()));
             research.store();
             return data;
         }
     }
 
     @Override
-    public void update(Pair<PlayerId, Set<ResearchId>> data, Connection c) {
+    public void update(PlayerResearch data, Connection c) {
         //FIXME implements
     }
 
