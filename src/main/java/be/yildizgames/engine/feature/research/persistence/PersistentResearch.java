@@ -24,9 +24,9 @@
 
 package be.yildizgames.engine.feature.research.persistence;
 
-import be.yildiz.common.id.PlayerId;
-import be.yildiz.common.util.StringUtil;
 import be.yildiz.module.database.data.SimplePersistentData;
+import be.yildizgames.common.model.PlayerId;
+import be.yildizgames.common.util.StringUtil;
 import be.yildizgames.engine.feature.research.PlayerResearch;
 import be.yildizgames.engine.feature.research.ResearchId;
 import be.yildizgames.engine.feature.research.ResearchManager;
