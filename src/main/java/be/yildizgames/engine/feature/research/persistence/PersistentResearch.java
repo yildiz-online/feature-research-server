@@ -76,6 +76,16 @@ public final class PersistentResearch implements SimplePersistentData<PlayerRese
 
     @Override
     public PlayerResearch save(final PlayerResearch data, Connection c) {
+        this.creteOrUpdateEntry(data, c);
+        return data;
+    }
+
+    @Override
+    public void update(PlayerResearch data, Connection c) {
+        this.creteOrUpdateEntry(data, c);
+    }
+
+    private void creteOrUpdateEntry(PlayerResearch data, Connection c) {
         try (DSLContext create = this.getDSL(c)) {
             ResearchesRecord research = create.fetchOne(table, table.PLY_ID.equal((short)data.getPlayerId().value));
             if(research == null) {
@@ -84,13 +94,7 @@ public final class PersistentResearch implements SimplePersistentData<PlayerRese
             }
             research.setName(StringUtil.toString(data.getResearches()));
             research.store();
-            return data;
         }
-    }
-
-    @Override
-    public void update(PlayerResearch data, Connection c) {
-        //FIXME implements
     }
 
     private DSLContext getDSL(Connection c) {
