@@ -22,8 +22,18 @@
  *
  */
 
-/**
- * Contains the server code for researches.
- * @author Grégory Van den Borre
- */
-package be.yildizgames.engine.feature.research;
+module be.yildizgames.feature.research.server {
+
+    requires java.xml.ws.annotation;
+
+    requires be.yildizgames.common.model;
+    requires be.yildizgames.feature.research.shared;
+    requires be.yildizgames.common.util;
+    requires be.yildizgames.module.database;
+
+    requires java.sql;
+    requires org.jooq;
+
+    exports be.yildizgames.engine.feature.research.server;
+    exports be.yildizgames.engine.feature.research.server.persistence;
+}

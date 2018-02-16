@@ -23,7 +23,7 @@
  */
 
 /**
- * Contains the persistence cde for researches.
+ * Contains the server code for researches.
  * @author Grégory Van den Borre
  */
-package be.yildizgames.engine.feature.research.persistence;
+package be.yildizgames.engine.feature.research.server;

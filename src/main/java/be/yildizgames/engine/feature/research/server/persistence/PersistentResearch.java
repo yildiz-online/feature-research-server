@@ -22,16 +22,16 @@
  *
  */
 
-package be.yildizgames.engine.feature.research.persistence;
+package be.yildizgames.engine.feature.research.server.persistence;
 
-import be.yildiz.module.database.data.SimplePersistentData;
 import be.yildizgames.common.model.PlayerId;
 import be.yildizgames.common.util.StringUtil;
-import be.yildizgames.engine.feature.research.PlayerResearch;
 import be.yildizgames.engine.feature.research.ResearchId;
 import be.yildizgames.engine.feature.research.ResearchManager;
-import be.yildizgames.engine.feature.research.generated.database.tables.Researches;
-import be.yildizgames.engine.feature.research.generated.database.tables.records.ResearchesRecord;
+import be.yildizgames.engine.feature.research.server.PlayerResearch;
+import be.yildizgames.engine.feature.research.server.generated.database.tables.Researches;
+import be.yildizgames.engine.feature.research.server.generated.database.tables.records.ResearchesRecord;
+import be.yildizgames.module.database.data.SimplePersistentData;
 import org.jooq.DSLContext;
 import org.jooq.conf.Settings;
 import org.jooq.impl.DSL;

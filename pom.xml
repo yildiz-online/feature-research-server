@@ -49,7 +49,7 @@
   </parent>
 
   <properties>
-    <feature.package>research</feature.package>
+    <feature.package>server.research</feature.package>
   </properties>
 
   <dependencies>

@@ -22,36 +22,8 @@
  *
  */
 
-package be.yildizgames.engine.feature.research;
-
-
-import be.yildizgames.common.collection.Sets;
-import be.yildizgames.common.model.PlayerId;
-
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Set;
-
 /**
+ * Contains the persistence cde for researches.
  * @author Grégory Van den Borre
  */
-public class PlayerResearch {
-
-    private final PlayerId playerId;
-
-    private final Set<ResearchId> researches;
-
-
-    public PlayerResearch(PlayerId playerId, Collection<ResearchId> researches) {
-        this.playerId = playerId;
-        this.researches = Collections.unmodifiableSet(Sets.newSet(researches));
-    }
-
-    public final PlayerId getPlayerId() {
-        return this.playerId;
-    }
-
-    public final Set<ResearchId> getResearches() {
-        return this.researches;
-    }
-}
+package be.yildizgames.engine.feature.research.server.persistence;
