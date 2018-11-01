@@ -24,7 +24,7 @@
 
 module be.yildizgames.feature.research.server {
 
-    requires java.xml.ws.annotation;
+    requires java.annotation;
 
     requires be.yildizgames.common.model;
     requires be.yildizgames.feature.research.shared;
