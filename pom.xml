@@ -45,11 +45,11 @@
   <parent>
     <groupId>be.yildiz-games</groupId>
     <artifactId>parent-feature-server</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.5-SNAPSHOT</version>
   </parent>
 
   <properties>
-    <feature.package>server.research</feature.package>
+    <feature.package>research</feature.package>
   </properties>
 
   <dependencies>
