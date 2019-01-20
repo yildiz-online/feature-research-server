@@ -45,7 +45,7 @@
   <parent>
     <groupId>be.yildiz-games</groupId>
     <artifactId>parent-feature-server</artifactId>
-    <version>1.0.5</version>
+    <version>1.0.6-SNAPSHOT</version>
   </parent>
 
   <properties>
@@ -64,13 +64,5 @@
       <version>2.0.3</version>
     </dependency>
   </dependencies>
-
-  <distributionManagement>
-    <repository>
-      <id>yildiz-nexus-release</id>
-      <name>Releases</name>
-      <url>https://nexus.yildiz-games.be/repository/Yildiz-Engine-Release/</url>
-    </repository>
-  </distributionManagement>
 
 </project>
