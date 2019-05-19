@@ -38,6 +38,7 @@ import java.util.Set;
  */
 public class PlayerResearch {
 
+
     private final PlayerId playerId;
 
     private final Set<ResearchId> researches;

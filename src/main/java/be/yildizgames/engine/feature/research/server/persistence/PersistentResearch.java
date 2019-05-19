@@ -102,4 +102,5 @@ public final class PersistentResearch implements SimplePersistentData<PlayerRese
         settings.setExecuteLogging(false);
         return DSL.using(c, settings);
     }
+
 }
