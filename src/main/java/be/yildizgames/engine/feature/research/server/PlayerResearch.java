@@ -29,8 +29,6 @@ import be.yildizgames.common.model.PlayerId;
 import be.yildizgames.engine.feature.research.ResearchId;
 
 import java.util.Collection;
-import java.util.Collections;
-import java.util.HashSet;
 import java.util.Set;
 
 /**
@@ -46,7 +44,7 @@ public class PlayerResearch {
 
     public PlayerResearch(PlayerId playerId, Collection<ResearchId> researches) {
         this.playerId = playerId;
-        this.researches = Collections.unmodifiableSet(new HashSet<>(researches));
+        this.researches = Set.copyOf(researches);
     }
 
     public final PlayerId getPlayerId() {
