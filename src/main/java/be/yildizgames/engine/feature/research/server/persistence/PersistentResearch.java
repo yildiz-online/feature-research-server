@@ -37,6 +37,7 @@ import org.jooq.conf.Settings;
 import org.jooq.impl.DSL;
 
 import java.sql.Connection;
+import java.util.Objects;
 import java.util.Optional;
 
 /**
@@ -45,6 +46,8 @@ import java.util.Optional;
  * @author Grégory Van den Borre
  */
 public final class PersistentResearch implements SimplePersistentData<PlayerResearch> {
+
+    private final System.Logger logger = System.getLogger(this.getClass().getName());
 
     /**
      * Database table containing the data.
@@ -67,7 +70,11 @@ public final class PersistentResearch implements SimplePersistentData<PlayerRese
                             if (!r.getName().isEmpty()) {
                                 String[] researches = r.getName().split(",");
                                 for (String s : researches) {
-                                    researchManager.addResearch(ResearchId.valueOf(Integer.valueOf(s)), player);
+                                    try {
+                                        researchManager.addResearch(ResearchId.valueOf(Integer.valueOf(s)), player);
+                                    } catch (Exception e) {
+                                        this.logger.log(System.Logger.Level.ERROR, e);
+                                    }
                                 }
                             }
                         }));
@@ -98,6 +105,7 @@ public final class PersistentResearch implements SimplePersistentData<PlayerRese
     }
 
     private DSLContext getDSL(Connection c) {
+        Objects.requireNonNull(c);
         Settings settings = new Settings();
         settings.setExecuteLogging(false);
         return DSL.using(c, settings);
