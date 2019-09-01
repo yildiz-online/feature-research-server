@@ -50,6 +50,7 @@
 
   <properties>
     <feature.package>research</feature.package>
+    <java.version>11</java.version>
   </properties>
 
   <dependencies>
